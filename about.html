@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About JBizz Web Developments | Where Premium Craft Meets Relentless Hustle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0f1419;
+            color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* Circuit board background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a2332;
+            background-image: 
+                linear-gradient(90deg, transparent 0%, transparent calc(50% - 1px), #d4af37 calc(50% - 1px), #d4af37 calc(50% + 1px), transparent calc(50% + 1px)),
+                linear-gradient(0deg, transparent 0%, transparent calc(50% - 1px), #c9a961 calc(50% - 1px), #c9a961 calc(50% + 1px), transparent calc(50% + 1px));
+            background-size: 120px 120px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a2332;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f4d03f;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(40px, 6vw, 60px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .about-hero .subtitle {
+            font-size: clamp(22px, 4vw, 32px);
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .about-hero .intro {
+            font-size: 20px;
+            color: #b0b0b0;
+            line-height: 1.8;
+        }
+
+        /* Content Sections */
+        .about-section {
+            padding: 60px 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-section h2 {
+            font-size: clamp(28px, 5vw, 38px);
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-weight: 900;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .about-section strong {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 5px;
+        }
+
+        .highlight-box p {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 0;
+        }
+
+        /* Service List */
+        .service-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .service-list li {
+            padding: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border-left: 4px solid #d4af37;
+            border-radius: 5px;
+        }
+
+        .service-list strong {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 10px;
+            color: #d4af37;
+        }
+
+        /* Value Props */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .value-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .value-item h3 {
+            color: #d4af37;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .value-item p {
+            font-size: 15px;
+            color: #b0b0b0;
+            margin-bottom: 0;
+        }
+
+        /* Mission Statement */
+        .mission-statement {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            padding: 80px 5%;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .mission-statement h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .mission-statement p {
+            font-size: 22px;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .mission-tagline {
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: 700;
+            margin-top: 40px;
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 5%;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(32px, 5vw, 42px);
+            color: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #1a2332;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            background: #0a0a0a;
+            border-top: 2px solid #d4af37;
+        }
+
+        footer p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f4d03f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .about-section {
+                padding: 40px 5%;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="jbizz-logo.png" alt="JBizz Web Developments">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About JBizz Web Developments</h1>
+        <p class="subtitle">Where Premium Craft Meets Relentless Hustle</p>
+        <p class="intro">
+            JBizz Web Developments was built on a simple belief:<br>
+            <strong>every business deserves a website that works as hard as they do.</strong>
+        </p>
+    </section>
+
+    <section class="about-section">
+        <p>
+            I'm <strong>Jesse</strong> — founder, developer, designer, and the driving force behind JBizz. For over a decade, I've been obsessed with building digital experiences that don't just look good… they <strong>perform</strong>.
+        </p>
+        <p>
+            Before launching this brand, I spent years studying the craft of clean design, high‑conversion layouts, and modern development practices used by top agencies and tech companies.
+        </p>
+        <p>
+            Today, I bring that same level of precision and expertise to small and medium businesses who want <strong>elite-quality web development without the inflated agency price tag</strong>.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h2>A Veteran's Eye. A Builder's Mindset. A Beginner's Heart.</h2>
+        <p>
+            Even after years of coding, designing, and architecting systems, nothing excites me more than helping someone launch or grow their business. I love working with people who are hungry, scrappy, and ready to level up — because that's exactly how JBizz started.
+        </p>
+        
+        <div class="highlight-box">
+            <p>
+                <strong>No investors.</strong><br>
+                <strong>No fancy office.</strong><br>
+                <strong>No big team.</strong><br>
+                Just skill, passion, and a phone.
+            </p>
+        </div>
+
+        <p>
+            That's why I build websites and AI systems that are:
+        </p>
+        <ul style="font-size: 18px; color: #e0e0e0; margin-left: 40px; margin-bottom: 25px; line-height: 2;">
+            <li><strong style="color: #d4af37;">Fast</strong></li>
+            <li><strong style="color: #d4af37;">Clean</strong></li>
+            <li><strong style="color: #d4af37;">Conversion‑focused</strong></li>
+            <li><strong style="color: #d4af37;">Future‑proof</strong></li>
+            <li><strong style="color: #d4af37;">Affordable without compromise</strong></li>
+        </ul>
+
+        <p>
+            I know what it's like to build from nothing — and I build for clients the way I wish someone had built for me.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h2>What I Do (and Why It Works)</h2>
+        <p>I specialize in:</p>
+
+        <ul class="service-list">
+            <li>
+                <strong>Custom Websites & Landing Pages</strong>
+                Built to convert, not just impress.
+            </li>
+            <li>
+                <strong>AI Integrations & Automations</strong>
+                Chatbots, workflows, and systems that save you time and make you money.
+            </li>
+            <li>
+                <strong>Lead Generation Systems</strong>
+                Funnels, forms, and follow‑ups that turn clicks into customers.
+            </li>
+            <li>
+                <strong>Technical Quick Fixes</strong>
+                Fast, reliable solutions for bugs, speed issues, SEO, hosting, and more.
+            </li>
+        </ul>
+
+        <p>
+            Every project is crafted with a blend of:
+        </p>
+        <ul style="font-size: 18px; color: #e0e0e0; margin-left: 40px; margin-bottom: 25px; line-height: 2;">
+            <li>High‑end design principles</li>
+            <li>Clean, modern code</li>
+            <li>Conversion psychology</li>
+            <li>AI‑powered enhancements</li>
+            <li>A veteran's attention to detail</li>
+        </ul>
+
+        <div class="highlight-box">
+            <p>
+                You're not just getting a website — you're getting a <strong>revenue engine</strong>.
+            </p>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <h2>Why Clients Choose JBizz</h2>
+        
+        <div class="value-grid">
+            <div class="value-item">
+                <h3>Premium Quality</h3>
+                <p>Without agency pricing</p>
+            </div>
+            <div class="value-item">
+                <h3>Fast Turnaround</h3>
+                <p>Clear communication</p>
+            </div>
+            <div class="value-item">
+                <h3>AI‑Enhanced</h3>
+                <p>Solutions that give you an edge</p>
+            </div>
+            <div class="value-item">
+                <h3>Personal Care</h3>
+                <p>A developer who cares about your success</p>
+            </div>
+            <div class="value-item">
+                <h3>Trust & Transparency</h3>
+                <p>Built on results, not promises</p>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 60px;">
+            <p style="font-size: 22px;">
+                <strong>I don't disappear.</strong><br>
+                <strong>I don't cut corners.</strong><br>
+                <strong>I don't deliver anything I wouldn't proudly put my name on.</strong>
+            </p>
+        </div>
+
+        <p style="font-size: 22px; text-align: center; margin-top: 40px; color: #d4af37;">
+            Your business becomes my mission — and I treat it like my own.
+        </p>
+    </section>
+
+    <section class="mission-statement">
+        <h2>The Mission</h2>
+        <p>
+            JBizz Web Developments exists to empower business owners with the tools, systems, and digital presence they need to compete in a modern world.
+        </p>
+        <p>
+            Whether you're launching your first idea or scaling your tenth, I'm here to build the technology that moves you forward.
+        </p>
+        <p class="mission-tagline">
+            Designed to captivate.<br>
+            Coded to convert.<br>
+            Built for people who refuse to settle.
+        </p>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Build Something Great?</h2>
+        <p>
+            Let's turn your vision into a high-performance digital asset. Get your free quote and project timeline within 24 hours.
+        </p>
+        <a href="index.html#contact" class="cta-button">Start Your Project</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 JBizz Web Developments. All Rights Reserved.</p>
+        <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Based in Fort Lauderdale, FL | Serving Clients Worldwide</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>

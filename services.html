@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | JBizz Web Developments - Premium Web Development & AI Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #0f1419;
+            color: #ffffff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Circuit board background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a2332;
+            background-image: 
+                linear-gradient(90deg, transparent 0%, transparent calc(50% - 1px), #d4af37 calc(50% - 1px), #d4af37 calc(50% + 1px), transparent calc(50% + 1px)),
+                linear-gradient(0deg, transparent 0%, transparent calc(50% - 1px), #c9a961 calc(50% - 1px), #c9a961 calc(50% + 1px), transparent calc(50% + 1px));
+            background-size: 120px 120px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* Circuit nodes animation */
+        .gradient-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at center, #d4af37 0%, #d4af37 2px, transparent 2px, transparent 100%);
+            background-size: 120px 120px;
+            background-position: 60px 60px;
+            opacity: 0.3;
+            animation: circuitPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Header */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a2332;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d4af37;
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-menu a.active {
+            color: #d4af37;
+        }
+
+        .cta-header {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            color: #1a2332;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .cta-header:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
+        }
+
+        /* Hero Section */
+        .services-hero {
+            padding: 100px 5% 60px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .services-hero h1 {
+            font-size: clamp(42px, 7vw, 68px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .services-hero .subtitle {
+            font-size: clamp(22px, 4vw, 28px);
+            color: #d4af37;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .services-hero .intro {
+            font-size: 19px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .services-hero .mission {
+            font-size: 20px;
+            color: #e0e0e0;
+            line-height: 1.8;
+            max-width: 850px;
+            margin: 30px auto 0;
+        }
+
+        /* Service Cards */
+        .services-section {
+            padding: 80px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card-large {
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.8), rgba(44, 62, 80, 0.6));
+            border-radius: 25px;
+            padding: 60px;
+            margin-bottom: 50px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .service-card-large:hover {
+            transform: translateY(-10px);
+            border-color: #d4af37;
+            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Circuit pattern overlay on cards */
+        .service-card-large::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 5%),
+                radial-gradient(circle at 90% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 5%),
+                radial-gradient(circle at 10% 90%, rgba(212, 175, 55, 0.15) 0%, transparent 5%),
+                radial-gradient(circle at 90% 90%, rgba(212, 175, 55, 0.15) 0%, transparent 5%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .service-card-large:hover::before {
+            opacity: 1;
+        }
+
+        .service-icon-large {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+        }
+
+        .service-card-large h2 {
+            font-size: clamp(28px, 5vw, 38px);
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        .service-card-large .tagline {
+            font-size: 22px;
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .service-card-large .description {
+            font-size: 18px;
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0 12px 35px;
+            font-size: 17px;
+            color: #e0e0e0;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-size: 20px;
+        }
+
+        .perfect-for {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 20px 25px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .perfect-for strong {
+            color: #d4af37;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .perfect-for p {
+            color: #e0e0e0;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(212, 175, 55, 0.1) 40px, rgba(212, 175, 55, 0.1) 41px),
+                repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(212, 175, 55, 0.1) 40px, rgba(212, 175, 55, 0.1) 41px);
+            opacity: 0.3;
+        }
+
+        .why-choose-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-choose h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 900;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .why-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s;
+        }
+
+        .why-item:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .why-item h3 {
+            color: #d4af37;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .why-item p {
+            color: #b0b0b0;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 5%;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(36px, 6vw, 52px);
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 20px 50px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #1a2332;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #d4af37;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 5%;
+            text-align: center;
+            background: #0a0a0a;
+            border-top: 2px solid #d4af37;
+        }
+
+        footer p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #f4d03f;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-menu {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                gap: 15px;
+                padding-top: 10px;
+                border-top: 1px solid rgba(212, 175, 55, 0.2);
+            }
+
+            .nav-menu a {
+                font-size: 13px;
+            }
+
+            .cta-header {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+
+            .service-card-large {
+                padding: 40px 30px;
+            }
+
+            .service-icon-large {
+                font-size: 50px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="jbizz-logo.png" alt="JBizz Web Developments">
+            </a>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button class="cta-header" onclick="window.location.href='index.html#contact'">
+            START YOUR PROJECT
+        </button>
+    </header>
+
+    <section class="services-hero">
+        <h1>Services Built to Elevate Your Business</h1>
+        <p class="subtitle">High‑Performance Web Development & AI Solutions</p>
+        <p class="intro">
+            Every service I offer is designed with one purpose: to help your business grow faster, smoother, and smarter.
+        </p>
+        <p class="mission">
+            With years of experience in design, development, and automation, I build digital systems that don't just look incredible — they work. Whether you need a brand‑new website, a conversion‑optimized landing page, or an AI system that saves you hours every week, JBizz delivers with precision.
+        </p>
+    </section>
+
+    <section class="services-section">
+        
+        <!-- Custom Website Design & Development -->
+        <div class="service-card-large">
+            <div class="service-icon-large">🌐</div>
+            <h2>Custom Website Design & Development</h2>
+            <p class="tagline">Modern. Fast. Conversion‑Focused.</p>
+            <p class="description">
+                Your website is your digital storefront — and most businesses are losing customers because theirs is outdated, slow, or confusing.
+            </p>
+            <p class="description" style="margin-bottom: 20px;">I build websites that:</p>
+            <ul class="feature-list">
+                <li>Load fast</li>
+                <li>Look premium</li>
+                <li>Convert visitors into customers</li>
+                <li>Work flawlessly on mobile</li>
+                <li>Are optimized for SEO and performance</li>
+            </ul>
+            <p class="description">
+                From small business sites to full multi‑page builds, everything is crafted with clean code, modern design, and a veteran's attention to detail.
+            </p>
+            <div class="perfect-for">
+                <strong>Perfect for:</strong>
+                <p>Startups, local businesses, service providers, creators, and anyone who needs a professional online presence.</p>
+            </div>
+        </div>
+
+        <!-- High-Converting Landing Pages -->
+        <div class="service-card-large">
+            <div class="service-icon-large">🚀</div>
+            <h2>High‑Converting Landing Pages</h2>
+            <p class="tagline">Your 24/7 Sales Machine</p>
+            <p class="description">
+                A great landing page can double — even triple — your conversions. I build pages engineered for results using proven conversion psychology.
+            </p>
+            <p class="description" style="margin-bottom: 20px;">You get:</p>
+            <ul class="feature-list">
+                <li>Clear messaging</li>
+                <li>Strong calls‑to‑action</li>
+                <li>Clean, modern design</li>
+                <li>Mobile‑first layouts</li>
+                <li>Fast turnaround</li>
+            </ul>
+            <div class="perfect-for">
+                <strong>Ideal for:</strong>
+                <p>If you're running ads, launching a product, or promoting a service, this is the fastest way to start generating revenue.</p>
+            </div>
+        </div>
+
+        <!-- AI Chatbots & Automation -->
+        <div class="service-card-large">
+            <div class="service-icon-large">🤖</div>
+            <h2>AI Chatbots & Automation Systems</h2>
+            <p class="tagline">Work Smarter. Save Time. Close More Sales.</p>
+            <p class="description">
+                AI isn't the future — it's the advantage your competitors are already using.
+            </p>
+            <p class="description" style="margin-bottom: 20px;">I build:</p>
+            <ul class="feature-list">
+                <li>AI customer support chatbots</li>
+                <li>Lead‑qualification bots</li>
+                <li>Automated follow‑up systems</li>
+                <li>Workflow automations</li>
+                <li>AI‑powered FAQ systems</li>
+                <li>Smart scheduling and CRM integrations</li>
+            </ul>
+            <p class="description">
+                These systems run 24/7, respond instantly, and help you close more business without lifting a finger.
+            </p>
+        </div>
+
+        <!-- Lead Generation Systems -->
+        <div class="service-card-large">
+            <div class="service-icon-large">📊</div>
+            <h2>Lead Generation Systems</h2>
+            <p class="tagline">Funnels, Forms & Follow‑Ups That Convert</p>
+            <p class="description">
+                Most businesses don't have a lead problem — they have a system problem.
+            </p>
+            <p class="description" style="margin-bottom: 20px;">I build complete lead‑gen systems that include:</p>
+            <ul class="feature-list">
+                <li>High‑converting funnels</li>
+                <li>Automated email/SMS follow‑ups</li>
+                <li>Lead capture forms</li>
+                <li>CRM integration</li>
+                <li>Tracking & analytics</li>
+            </ul>
+            <p class="description">
+                You get a predictable, repeatable flow of leads — without the complexity.
+            </p>
+        </div>
+
+        <!-- Technical Quick Fixes -->
+        <div class="service-card-large">
+            <div class="service-icon-large">⚡</div>
+            <h2>Technical Quick Fixes</h2>
+            <p class="tagline">Fast, Reliable, Done‑For‑You Solutions</p>
+            <p class="description">
+                Need something fixed today? I offer rapid‑response technical services, including:
+            </p>
+            <ul class="feature-list">
+                <li>Bug fixes</li>
+                <li>Speed optimization</li>
+                <li>SEO improvements</li>
+                <li>Hosting setup</li>
+                <li>Domain configuration</li>
+                <li>Mobile responsiveness fixes</li>
+                <li>Broken layout repairs</li>
+                <li>API integrations</li>
+            </ul>
+            <div class="perfect-for">
+                <strong>Perfect for:</strong>
+                <p>Businesses who need expert help right now without waiting weeks.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="why-choose">
+        <div class="why-choose-content">
+            <h2>Why Choose JBizz</h2>
+            <div class="why-grid">
+                <div class="why-item">
+                    <h3>Veteran‑Level Skill</h3>
+                    <p>Decade of experience</p>
+                </div>
+                <div class="why-item">
+                    <h3>Fast Turnaround</h3>
+                    <p>Quick delivery without compromise</p>
+                </div>
+                <div class="why-item">
+                    <h3>Fair Pricing</h3>
+                    <p>Premium quality, honest rates</p>
+                </div>
+                <div class="why-item">
+                    <h3>AI‑Powered</h3>
+                    <p>Cutting-edge enhancements</p>
+                </div>
+                <div class="why-item">
+                    <h3>Clean Design</h3>
+                    <p>Modern, professional aesthetics</p>
+                </div>
+                <div class="why-item">
+                    <h3>Clear Communication</h3>
+                    <p>Always available, always honest</p>
+                </div>
+                <div class="why-item">
+                    <h3>Built for Results</h3>
+                    <p>Conversion-focused approach</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 20px; color: #e0e0e0; margin-top: 50px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Every project is crafted with care, precision, and a commitment to helping your business grow.
+            </p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Start?</h2>
+        <p>
+            Let's build something powerful. Your business deserves a website and system that actually works for you.
+        </p>
+        <div class="cta-buttons">
+            <a href="index.html#contact" class="cta-primary">Start Your Project</a>
+            <a href="index.html#contact" class="cta-secondary">Get a Free Quote in 5 Minutes</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 JBizz Web Developments. All Rights Reserved.</p>
+        <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Based in Fort Lauderdale, FL | Serving Clients Worldwide</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </footer>
+</body>
+</html>
