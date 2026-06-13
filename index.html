@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J Bizz Web Dev | Modern Professional Websites</title>
-    <meta name="description" content="Clean, high-converting websites with AI features.">
+    <meta name="description" content="Clean, high-converting websites with AI features. Florida-based, working with clients nationwide. Designed to captivate. Coded to convert.">
+
+    <!-- ADDED: SEO + social sharing -->
+    <link rel="canonical" href="https://jbizzwebdev.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jbizzwebdev.com/">
+    <meta property="og:title" content="J Bizz Web Dev | Modern Professional Websites">
+    <meta property="og:description" content="Clean, high-converting websites with AI features. Designed to captivate. Coded to convert.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/jbizz-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0a0a0b">
+    <link rel="icon" href="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/jbizz-logo.png">
+
+    <!-- ADDED: LocalBusiness structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "J Bizz Web Developments",
+      "url": "https://jbizzwebdev.com",
+      "slogan": "Designed to captivate. Coded to convert.",
+      "description": "Modern, high-converting websites with AI-powered features.",
+      "areaServed": "United States",
+      "address": {"@type": "PostalAddress", "addressRegion": "FL", "addressCountry": "US"}
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        html { scroll-behavior: smooth; } /* ADDED */
         body { font-family: system-ui, -apple-system, sans-serif; overflow-x: hidden; }
         .glass {
             background: rgba(255,255,255,0.08);
@@ -25,9 +52,7 @@
             box-shadow: 0 0 25px rgba(212,175,55,0.6),
                         0 0 50px rgba(212,175,55,0.3);
         }
-        .modern-card {
-            transition: all 0.3s ease;
-        }
+        .modern-card { transition: all 0.3s ease; }
         .modern-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 30px 60px -15px rgb(0 0 0 / 0.5);
@@ -38,20 +63,32 @@
             transition: transform 0.4s ease;
         }
         .img-modern:hover { transform: scale(1.02); }
+        /* ADDED: subtle reveal-on-scroll */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        /* ADDED: gold text helper */
+        .text-gold { color: #D4AF37; }
     </style>
 </head>
 <body class="bg-zinc-950 text-white">
 
-    <!-- Strong Glass Nav -->
+    <!-- Strong Glass Nav (ADDED: section links) -->
     <nav class="fixed top-0 w-full z-50 glass border-b border-white/20">
         <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-            <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/jbizz-logo.png" alt="J Bizz Web Dev" class="h-9 w-auto">
+            <a href="#top"><img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/jbizz-logo.png" alt="J Bizz Web Dev" class="h-9 w-auto"></a>
+            <div class="hidden md:flex items-center gap-x-8 text-sm text-white/70">
+                <a href="#services" class="hover:text-white transition">Services</a>
+                <a href="#process" class="hover:text-white transition">Process</a>
+                <a href="#work" class="hover:text-white transition">Work</a>
+                <a href="#products" class="hover:text-white transition">Products</a>
+                <a href="#faq" class="hover:text-white transition">FAQ</a>
+            </div>
             <a href="#contact" class="glow-gold bg-white hover:bg-[#D4AF37] text-black px-8 py-3.5 rounded-2xl text-sm font-bold transition">Start Your Project</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="min-h-[100dvh] flex items-center pt-16 relative">
+    <!-- Hero (UNCHANGED) -->
+    <section id="top" class="min-h-[100dvh] flex items-center pt-16 relative">
         <div class="absolute inset-0 bg-[radial-gradient(#27272a_0.8px,transparent_1px)] bg-[length:5px_5px]"></div>
         <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
             <div class="inline-flex items-center gap-x-2 px-5 py-2 rounded-full glass mb-8">
@@ -62,38 +99,44 @@
             <h1 class="text-6xl md:text-7xl lg:text-[82px] font-semibold tracking-[-4.8px] leading-[0.9] mb-6 max-w-[1100px] mx-auto">
                 Websites that<br>actually perform.
             </h1>
-            <p class="max-w-lg mx-auto text-2xl text-white/70 mb-10">Clean modern design.<br>AI-powered features that convert.</p>
-
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="glow-gold inline-flex justify-center items-center bg-white text-black px-11 py-5 rounded-3xl font-bold text-lg hover:bg-[#D4AF37] transition">Start Your Project</a>
-                <a href="#work" class="inline-flex justify-center items-center border border-white/30 hover:bg-white/5 px-9 py-5 rounded-3xl font-semibold text-lg transition">See Our Work</a>
+            <p class="max-w-lg mx-auto text-xl text-white/70 mb-10">Clean modern design.<br>AI-powered features that convert.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="glow-gold bg-white hover:bg-[#D4AF37] text-black px-10 py-5 rounded-2xl font-bold text-lg transition">Start Your Project</a>
+                <a href="#work" class="glass px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/15 transition">See Our Work</a>
+            </div>
+            <!-- ADDED: trust strip -->
+            <div class="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs tracking-[2px] text-white/40">
+                <span><i class="fas fa-bolt text-gold mr-2"></i>FAST TURNAROUND</span>
+                <span><i class="fas fa-mobile-screen text-gold mr-2"></i>MOBILE-FIRST</span>
+                <span><i class="fas fa-robot text-gold mr-2"></i>AI-POWERED</span>
+                <span><i class="fas fa-chart-line text-gold mr-2"></i>BUILT TO CONVERT</span>
             </div>
         </div>
     </section>
 
-    <!-- Glassmorphism Service Cards -->
+    <!-- Glassmorphism Service Cards (UNCHANGED) -->
     <section id="services" class="py-20 border-t border-white/10">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-14">
+            <div class="text-center mb-14 reveal">
                 <div class="text-[#D4AF37] text-xs tracking-[3px] font-semibold mb-3">WHAT WE DELIVER</div>
                 <h2 class="text-6xl font-semibold tracking-tight">Modern sites.<br>Real results.</h2>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10">
-                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/leadgen.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="">
+                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/leadgen.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="Lead generation website example">
                     <h3 class="text-3xl font-semibold tracking-tight mb-3">Lead Generation Sites</h3>
                     <p class="text-white/70">Focused, high-converting pages that turn visitors into booked calls and sales.</p>
                 </div>
 
-                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10">
-                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/aichat.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="">
+                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/aichat.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="AI chatbot feature example">
                     <h3 class="text-3xl font-semibold tracking-tight mb-3">AI-Powered Features</h3>
                     <p class="text-white/70">Smart chatbots, automation, and dynamic tools that work 24/7.</p>
                 </div>
 
-                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10">
-                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/portfolio.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="">
+                <div class="modern-card glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/portfolio.jpg" class="img-modern w-full aspect-[16/10] object-cover mb-8" alt="Premium website design example">
                     <h3 class="text-3xl font-semibold tracking-tight mb-3">Premium Design &amp; Build</h3>
                     <p class="text-white/70">Fast, beautiful, mobile-first websites with a clean modern luxury feel.</p>
                 </div>
@@ -101,12 +144,44 @@
         </div>
     </section>
 
-    <!-- Work -->
+    <!-- ADDED: Process section -->
+    <section id="process" class="py-20 border-t border-white/10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-14 reveal">
+                <div class="text-[#D4AF37] text-xs tracking-[3px] font-semibold mb-3">HOW IT WORKS</div>
+                <h2 class="text-6xl font-semibold tracking-tight">Simple process.<br>Zero confusion.</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <div class="text-gold text-4xl font-semibold mb-4">01</div>
+                    <h3 class="text-xl font-semibold mb-2">Strategy Call</h3>
+                    <p class="text-white/60 text-sm">Free 20-minute call. Your goals, your customers, what "winning" looks like.</p>
+                </div>
+                <div class="glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <div class="text-gold text-4xl font-semibold mb-4">02</div>
+                    <h3 class="text-xl font-semibold mb-2">Design Preview</h3>
+                    <p class="text-white/60 text-sm">You see the look and feel before anything is built. Revisions included.</p>
+                </div>
+                <div class="glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <div class="text-gold text-4xl font-semibold mb-4">03</div>
+                    <h3 class="text-xl font-semibold mb-2">Build &amp; Launch</h3>
+                    <p class="text-white/60 text-sm">Fast, mobile-first build with AI features wired in. Live on your domain.</p>
+                </div>
+                <div class="glass-dark rounded-3xl p-8 border border-white/10 reveal">
+                    <div class="text-gold text-4xl font-semibold mb-4">04</div>
+                    <h3 class="text-xl font-semibold mb-2">Grow &amp; Support</h3>
+                    <p class="text-white/60 text-sm">Tracking in place, tweaks after launch, and support when you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work (UNCHANGED) -->
     <section id="work" class="py-20 border-t border-white/10 bg-black">
         <div class="max-w-5xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-y-12 items-center">
                 <div class="md:col-span-5">
-                    <div class="sticky top-24">
+                    <div class="sticky top-24 reveal">
                         <div class="text-[#D4AF37] text-xs tracking-[3px] font-semibold mb-3">REAL RESULTS</div>
                         <h2 class="text-6xl font-semibold tracking-tight leading-none">Sites that<br>actually move<br>the needle.</h2>
                         <p class="mt-6 text-lg text-white/70">Every project is built with one goal: more leads, more clients, more growth.</p>
@@ -114,8 +189,8 @@
                     </div>
                 </div>
                 <div class="md:col-span-7">
-                    <div class="relative rounded-3xl overflow-hidden border border-white/10 glass-dark">
-                        <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/portfolio.jpg" class="img-modern w-full" alt="">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 glass-dark reveal">
+                        <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/portfolio.jpg" class="img-modern w-full" alt="Home services contractor website project">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 right-0 p-8">
                             <div class="text-sm tracking-widest text-white/60">RECENT PROJECT</div>
@@ -128,15 +203,96 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- ADDED: Digital Products section (cross-sell the Cashflow OS) -->
+    <section id="products" class="py-20 border-t border-white/10">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-14 reveal">
+                <div class="text-[#D4AF37] text-xs tracking-[3px] font-semibold mb-3">DIGITAL PRODUCTS</div>
+                <h2 class="text-6xl font-semibold tracking-tight">Tools we build.<br>Tools we sell.</h2>
+                <p class="mt-6 text-lg text-white/70 max-w-xl mx-auto">The same conversion thinking we put into client sites, packaged into products anyone can use.</p>
+            </div>
+            <div class="modern-card glass-dark rounded-3xl p-8 md:p-12 border border-white/10 reveal">
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div>
+                        <div class="inline-flex text-xs px-4 py-2 bg-[#D4AF37]/15 text-gold rounded-full mb-5 font-semibold tracking-wide">NEW · EXCEL + GOOGLE SHEETS</div>
+                        <h3 class="text-4xl font-semibold tracking-tight mb-4">Freelancer Cashflow OS</h3>
+                        <p class="text-white/70 mb-6">Turn irregular income into a predictable paycheck. 8 linked tabs: live dashboard, auto tax-split income log, invoice overdue alarms, rate calculator, quarterly tax planner — plus 6 copy-paste client money scripts.</p>
+                        <ul class="text-white/60 text-sm space-y-2 mb-8">
+                            <li><i class="fas fa-check text-gold mr-2"></i>Know your runway and your safe salary</li>
+                            <li><i class="fas fa-check text-gold mr-2"></i>30% tax set-aside handled automatically</li>
+                            <li><i class="fas fa-check text-gold mr-2"></i>Overdue invoices turn red — with scripts to chase them</li>
+                        </ul>
+                        <a href="#" class="glow-gold inline-flex bg-white text-black px-8 py-4 rounded-2xl font-bold hover:bg-[#D4AF37] transition">Get it — $24 <span class="ml-2 text-black/50 line-through font-medium">$39 value</span></a>
+                        <p class="mt-4 text-xs text-white/40">↑ Replace # with your Gumroad link</p>
+                    </div>
+                    <div>
+                        <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/cashflow-os-cover.png" class="img-modern w-full" alt="Freelancer Cashflow OS spreadsheet product" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADDED: FAQ section -->
+    <section id="faq" class="py-20 border-t border-white/10 bg-black">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-14 reveal">
+                <div class="text-[#D4AF37] text-xs tracking-[3px] font-semibold mb-3">QUESTIONS</div>
+                <h2 class="text-6xl font-semibold tracking-tight">FAQ</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="glass-dark rounded-2xl border border-white/10 p-6 group">
+                    <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">How long does a website take? <i class="fas fa-chevron-down text-gold group-open:rotate-180 transition"></i></summary>
+                    <p class="mt-4 text-white/60">Most lead-generation sites launch in 1–3 weeks depending on scope. You'll get a clear timeline on the strategy call.</p>
+                </details>
+                <details class="glass-dark rounded-2xl border border-white/10 p-6 group">
+                    <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">What does a project cost? <i class="fas fa-chevron-down text-gold group-open:rotate-180 transition"></i></summary>
+                    <p class="mt-4 text-white/60">Every project is scoped to your goals — no bloated packages. Book the free call and you'll get a straight number, fast.</p>
+                </details>
+                <details class="glass-dark rounded-2xl border border-white/10 p-6 group">
+                    <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">What are "AI-powered features"? <i class="fas fa-chevron-down text-gold group-open:rotate-180 transition"></i></summary>
+                    <p class="mt-4 text-white/60">Chatbots that answer your customers 24/7, smart lead-capture forms, automated follow-ups, and dynamic content — working while you sleep.</p>
+                </details>
+                <details class="glass-dark rounded-2xl border border-white/10 p-6 group">
+                    <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">Do you work outside Florida? <i class="fas fa-chevron-down text-gold group-open:rotate-180 transition"></i></summary>
+                    <p class="mt-4 text-white/60">Yes — Florida-based, working with clients nationwide. Everything is handled remotely and smoothly.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA (UNCHANGED + ADDED email fallback) -->
     <section id="contact" class="py-24 border-t border-white/10">
         <div class="max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-6xl font-semibold tracking-tight mb-6">Ready to build<br>something that works?</h2>
             <p class="text-xl text-white/70 mb-10">Let's create a modern site that brings in the right clients.</p>
             <a href="https://calendly.com/" target="_blank" class="glow-gold inline-flex items-center justify-center bg-white text-black px-14 py-6 rounded-3xl font-bold text-xl hover:bg-[#D4AF37] transition">Book Free Strategy Call</a>
+            <p class="mt-6 text-white/50">Prefer email? <a href="/cdn-cgi/l/email-protection#721b1c141d3218101b08080517101617045c111d1f" class="text-gold underline-offset-4 hover:underline"><span class="__cf_email__" data-cfemail="cea7a0a8a18ea4aca7b4b4b9abacaaabb8e0ada1a3">[email&#160;protected]</span></a></p>
             <p class="mt-8 text-sm text-white/50">Florida-based • Working with clients nationwide</p>
         </div>
     </section>
 
+    <!-- ADDED: Footer -->
+    <footer class="border-t border-white/10 py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <img src="https://raw.githubusercontent.com/jessegoetz55-design/jbizzwebdev/main/Assets/jbizz-logo.png" alt="J Bizz Web Dev" class="h-8 w-auto">
+            <p class="text-white/40 text-sm text-center">Designed to captivate. Coded to convert.</p>
+            <div class="flex gap-x-5 text-white/50">
+                <a href="#" aria-label="X / Twitter" class="hover:text-gold transition"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Instagram" class="hover:text-gold transition"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook" class="hover:text-gold transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="LinkedIn" class="hover:text-gold transition"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+        <p class="text-center text-white/30 text-xs mt-8">© 2026 J Bizz Web Developments · jbizzwebdev.com</p>
+    </footer>
+
+    <!-- ADDED: reveal-on-scroll script -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        const io = new IntersectionObserver(es => es.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        }), { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
 </body>
-                        </html>you
+</html>
