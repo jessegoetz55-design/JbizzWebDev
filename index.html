@@ -104,11 +104,11 @@
 
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu" class="fixed inset-0 z-40 bg-zinc-950/95 backdrop-blur-2xl flex flex-col items-center justify-center gap-y-8 text-2xl font-semibold opacity-0 pointer-events-none" style="transform: translateX(100%);">
-        <a href="#services" class="mobile-nav-link hover:text-gold transition">Services</a>
-        <a href="#process" class="mobile-nav-link hover:text-gold transition">Process</a>
-        <a href="#work" class="mobile-nav-link hover:text-gold transition">Work</a>
-        <a href="#products" class="mobile-nav-link hover:text-gold transition">Products</a>
-        <a href="#faq" class="mobile-nav-link hover:text-gold transition">FAQ</a>
+        <a href="#services" class="mobile-nav-link hover:text-[#D4AF37] transition">Services</a>
+        <a href="#process" class="mobile-nav-link hover:text-[#D4AF37] transition">Process</a>
+        <a href="#work" class="mobile-nav-link hover:text-[#D4AF37] transition">Work</a>
+        <a href="#products" class="mobile-nav-link hover:text-[#D4AF37] transition">Products</a>
+        <a href="#faq" class="mobile-nav-link hover:text-[#D4AF37] transition">FAQ</a>
         <a href="#contact" class="mobile-nav-link glow-gold bg-white text-black px-10 py-4 rounded-2xl text-lg font-bold hover:bg-[#D4AF37] transition mt-4">Start Your Project</a>
     </div>
 
@@ -402,14 +402,17 @@
         const bar1 = document.getElementById('bar1');
         const bar2 = document.getElementById('bar2');
         const bar3 = document.getElementById('bar3');
+        const BAR_OFFSET = '8px';
+        const BAR_OPEN_1 = `translateY(${BAR_OFFSET}) rotate(45deg)`;
+        const BAR_OPEN_3 = `translateY(-${BAR_OFFSET}) rotate(-45deg)`;
         let menuOpen = false;
         toggle.addEventListener('click', () => {
             menuOpen = !menuOpen;
             if (menuOpen) {
                 menu.classList.add('open');
-                bar1.style.transform = 'translateY(8px) rotate(45deg)';
+                bar1.style.transform = BAR_OPEN_1;
                 bar2.style.opacity = '0';
-                bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+                bar3.style.transform = BAR_OPEN_3;
             } else {
                 menu.classList.remove('open');
                 bar1.style.transform = '';
@@ -427,7 +430,7 @@
             });
         });
 
-        // Scroll-spy active nav
+        // Scroll-spy: -40% top / -55% bottom keeps the active section centred in the viewport
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
         const spyObserver = new IntersectionObserver(entries => {
